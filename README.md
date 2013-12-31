@@ -15,7 +15,7 @@ This example highlights the following things:
 * Limiting access to certain parts of your application based on user roles.
 
 This repository was created specifically to hold the example. If you look at the [commit list](https://github.com/lmarkus/Kraken_Example_Passport/commits/master), you will see
-how the shopping cart was built, step by step.
+how the application was built, step by step.
 
 ## Prerequisites
 * This example requires that [MongoDB](http://www.mongodb.org/downloads) is installed and running on it's default port.
