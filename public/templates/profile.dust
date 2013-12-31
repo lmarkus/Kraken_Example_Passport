@@ -2,5 +2,5 @@
 
 {<body}
     <h1>{@pre type="content" key="greeting"/}</h1>
-    <p>This is the user profile page</p>
+    <p>You are <strong>{user.name}</strong> and your role is <strong>{user.role}</strong></p>
 {/body}
