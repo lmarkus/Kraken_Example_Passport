@@ -1,5 +1,37 @@
 {>"layouts/master" /}
 
 {<body}
-    <h1>{@pre type="content" key="greeting"/}</h1>
+    <div>
+        <form id="loginForm" method="post">
+            <fieldset>
+                <h2>Login</h2>
+                {?messages}
+                    <ul>
+                        {#messages}
+                            <li>{.}</li>
+                        {/messages}
+
+                    </ul>
+                {/messages}
+                <table>
+                    <tr>
+                        <td><label for="username">Login: </label></td>
+                        <td><input id="username" name="username" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password: </label></td>
+                        <td><input id="password" name="password" type="password"/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Login"/>
+                            <input type="hidden" name="_csrf" value="{_csrf}"/>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+
+            </fieldset>
+        </form>
+    </div>
 {/body}

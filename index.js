@@ -12,7 +12,6 @@ var kraken = require('kraken-js'),
 app.configure = function configure(nconf, next) {
     // Async method run on startup.
     db.config(nconf.get('databaseConfig'));
-
     //Tell passport to use our newly created local strategy for authentication
     passport.use(auth.localStrategy());
 
