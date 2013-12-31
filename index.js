@@ -5,6 +5,7 @@ var kraken = require('kraken-js'),
     db = require('./lib/database'),
     passport = require('passport'),
     auth = require('./lib/auth'),
+    flash = require('connect-flash'),
     User = require('./models/user'),
     app = {};
 
@@ -37,6 +38,10 @@ app.requestStart = function requestStart(server) {
 
 app.requestBeforeRoute = function requestBeforeRoute(server) {
     // Run before any routes have been added.
+    server.use(passport.initialize());
+    server.use(passport.session());
+    server.use(flash());
+    server.use(auth.injectUser);
 };
 
 
