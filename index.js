@@ -13,6 +13,26 @@ var kraken = require('kraken-js'),
 app.configure = function configure(nconf, next) {
     // Async method run on startup.
     db.config(nconf.get('databaseConfig'));
+
+    //Add two users to the system.
+    var u1 = new User({
+        name: 'Kraken McSquid',
+        login: 'kraken',
+        password: 'releaseMe',
+        role: 'admin'
+    });
+
+    var u2 = new User({
+        name: 'Ash Williams',
+        login: 'awilliams',
+        password: 'boomstick',
+        role: 'user'
+    });
+
+    //Ignore errors. In this case, the errors will be for duplicate keys as we run this app more than once.
+    u1.save();
+    u2.save();
+
     //Tell passport to use our newly created local strategy for authentication
     passport.use(auth.localStrategy());
 
