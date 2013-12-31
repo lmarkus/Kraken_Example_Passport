@@ -47,7 +47,7 @@ var userModel = function () {
         userSchema.methods.passwordMatches = function (plainText) {
             var user = this;
             return bcrypt.compareSync(plainText, user.password);
-        }
+        };
 
 
         return mongoose.model('User', userSchema);

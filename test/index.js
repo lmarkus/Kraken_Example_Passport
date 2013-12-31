@@ -34,7 +34,9 @@ describe('index', function () {
             .expect('Content-Type', /html/)
             .expect(/Hello, /)
             .end(function(err, res){
+                console.log(err,res);
                 if (err) return done(err);
+
                 done()
             });
     });
