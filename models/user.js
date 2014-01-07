@@ -4,8 +4,7 @@
 'use strict';
 var mongoose = require('mongoose'),
     bcrypt = require('bcrypt'),
-    nconf = require('nconf'),
-    DIFFICULTY = (nconf.get('auth') && nconf.get('bcrypt').difficulty) || 8;  //Retrieve the desired difficulty from the configuration. (Default = 8)
+    nconf = require('nconf');
 
 
 var userModel = function () {
@@ -28,6 +27,9 @@ var userModel = function () {
                 next();
                 return;
             }
+
+            //Retrieve the desired difficulty from the configuration. (Default = 8)
+            var DIFFICULTY = (nconf.get('bcrypt') && nconf.get('bcrypt').difficulty) || 8;
 
             //Encrypt it using bCrypt. Using the Sync method instead of Async to keep the code simple.
             var hashedPwd = bcrypt.hashSync(user.password, DIFFICULTY);
