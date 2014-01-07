@@ -189,8 +189,11 @@ userSchema.pre('save', function (next) {
         return;
     }
 
+
+    //Retrieve the desired difficulty from the configuration. (Default = 8)
+    var DIFFICULTY = (nconf.get('bcrypt') && nconf.get('bcrypt').difficulty) || 8;
+
     //Encrypt it using bCrypt. Using the Sync method instead of Async to keep the code simple.
-    //DIFFICULTY is the bcrypt work factor, which has been set in the configuration.
     var hashedPwd = bcrypt.hashSync(user.password, DIFFICULTY);
 
     //Replace the plaintext pw with the Hash+Salted pw;
@@ -210,6 +213,7 @@ userSchema.methods.passwordMatches = function (plainText) {
 ```
 
 [<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Passport/commit/0bb85e58bf55635570c2f5004348dd91c238677e)
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>Errata](https://github.com/lmarkus/Kraken_Example_Passport/commit/959ece603a3474c8ff73e86086bd6594cf2926df)
 
 ## Securing some resources
 
