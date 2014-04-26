@@ -470,7 +470,7 @@ app.get('/admin', auth.isAuthenticated('admin'), function (req, res) {
 
 ## Finishing touches
 ### Getting information about the user
-Remember the `auth.injectUser` method? Let's take advantage of the fact that we can now access the logged in user from templates to pull of a few special tricks.
+Remember the `auth.injectUser` method? Let's take advantage of the fact that we can now access the logged in user from templates to pull off a few special tricks.
 
 Let's modify the master layout navigation menu one more time to offer a **login** or **logout** option dynamically:
 
