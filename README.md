@@ -229,13 +229,13 @@ s bundle for us, saving us from some tedious work.
 (This example won't use XHR request, so just answer *no* at the prompts:
 
 ```bash
-yo kraken:page admin
+yo kraken:controller admin
    invoke   kraken:controller:/usr/local/lib/node_modules/generator-kraken/page/index.js
 [?] Respond to XHR requests? No
 
 ...
 
-yo kraken:page profile
+yo kraken:controller profile
    invoke   kraken:controller:/usr/local/lib/node_modules/generator-kraken/page/index.js
 [?] Respond to XHR requests? No
 ```
